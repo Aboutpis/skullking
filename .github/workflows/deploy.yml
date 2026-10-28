@@ -14,27 +14,27 @@ concurrency:
 
 jobs:
   deploy:
-    if: github.event.repository.private == false
+    if: github.repository == 'Aboutpis/skullking' && github.event.repository.private == false
     runs-on: ubuntu-latest
     timeout-minutes: 10
-
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
-          node-version: "22"
-
-      - name: Prepare static files
-        run: |
-          mkdir -p public
-          if [ ! -f public/index.html ]; then
-            printf '%s\n' '<!doctype html><html lang="en"><meta charset="utf-8"><title>SkullKing</title><h1>Deployment connected</h1><p>SkullKing is coming soon.</p></html>' > public/index.html
-          fi
-
+          node-version: '22'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Check game source
+        run: npm run check
+      - name: Test game and static isolation
+        run: npm test
+      - name: Build static game
+        run: npm run build
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy public --project-name=aboutpis-skullking --branch=main
+          wranglerVersion: '4.153.0'
+          command: pages deploy dist --project-name=aboutpis-skullking --branch=main

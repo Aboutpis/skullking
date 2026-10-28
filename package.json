@@ -1,0 +1,23 @@
+{
+  "name": "skullking-online",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts-sync.mjs",
+    "pretest": "npm run sync",
+    "test": "node --test tests/*.test.mjs",
+    "build": "node scripts-sync.mjs && node scripts-build.mjs && node scripts-bundle.mjs",
+    "check": "node --check web/app.mjs && node --check server/index.mjs && node --check shared/transport.mjs && node --check web/connection.mjs",
+    "dev": "node dev-server.mjs",
+    "dev:server": "wrangler dev --config server/wrangler.jsonc --port 8787",
+    "test:server": "node scripts-server-build.mjs && node --test tests/server.integration.mjs",
+    "deploy:server": "wrangler deploy --config server/wrangler.jsonc",
+    "predev": "npm run build"
+  },
+  "version": "0.3.1",
+  "devDependencies": {
+    "wrangler": "4.153.0",
+    "miniflare": "4.20260730.0",
+    "esbuild": "^0.25.0"
+  }
+}

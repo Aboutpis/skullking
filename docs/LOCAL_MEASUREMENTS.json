@@ -1,0 +1,64 @@
+{
+  "measuredAt": "2026-10-28T10:40:54.230Z",
+  "environment": "Miniflare/workerd, application WebSocket bytes; excludes TCP/TLS/compression and production CPU/GB-s. Synthetic rapid game may trip anti-flood protection; not an elapsed play-duration benchmark.",
+  "reports": [
+    {
+      "players": 4,
+      "rounds": 10,
+      "tricks": 55,
+      "chat": 89,
+      "clientInboundBytes": 254805,
+      "clientOutboundBytes": 41765,
+      "elapsedLocalMs": 3142,
+      "server": {
+        "code": "JJYVP8",
+        "httpRequests": 9,
+        "wsConnections": 4,
+        "inMessages": 360,
+        "outMessages": 1820,
+        "inBytes": 41765,
+        "outBytes": 254805,
+        "accepted": 360,
+        "rejected": 0,
+        "snapshots": 4,
+        "deltas": 1446,
+        "stateWrites": 369,
+        "sqlRowsRead": 369,
+        "sqlRowsWritten": 369,
+        "handlerWallMs": 619,
+        "maxStoredBytes": 53084,
+        "currentStoredBytes": 53084,
+        "note": "Application bytes and local handler wall time; not network/TLS bytes or Cloudflare billed CPU/GB-s. Native auto ping/pong is not counted."
+      }
+    },
+    {
+      "players": 6,
+      "rounds": 10,
+      "tricks": 55,
+      "chat": 100,
+      "clientInboundBytes": 543698,
+      "clientOutboundBytes": 57871,
+      "elapsedLocalMs": 4367,
+      "server": {
+        "code": "2VNWR6",
+        "httpRequests": 13,
+        "wsConnections": 6,
+        "inMessages": 501,
+        "outMessages": 3549,
+        "inBytes": 57871,
+        "outBytes": 543698,
+        "accepted": 501,
+        "rejected": 0,
+        "snapshots": 6,
+        "deltas": 3021,
+        "stateWrites": 514,
+        "sqlRowsRead": 514,
+        "sqlRowsWritten": 514,
+        "handlerWallMs": 1004,
+        "maxStoredBytes": 70338,
+        "currentStoredBytes": 70338,
+        "note": "Application bytes and local handler wall time; not network/TLS bytes or Cloudflare billed CPU/GB-s. Native auto ping/pong is not counted."
+      }
+    }
+  ]
+}
