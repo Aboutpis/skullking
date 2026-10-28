@@ -14,7 +14,7 @@
     "deploy:server": "wrangler deploy --config server/wrangler.jsonc",
     "predev": "npm run build"
   },
-  "version": "0.3.1",
+  "version": "0.4.0",
   "devDependencies": {
     "wrangler": "4.153.0",
     "miniflare": "4.20260730.0",
